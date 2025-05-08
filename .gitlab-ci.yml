@@ -1,0 +1,32 @@
+image: docker
+services:
+  - "docker:dind"
+variables:  # not strictly needed, depending on runner configuration
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_TLS_CERTDIR: ""
+
+stages:          # List of stages for jobs, and their order of execution
+  - remove
+  - build
+  - deploy
+
+remove-job:       # removing old container
+  stage: remove
+  script:
+  - unset DOCKER_HOST
+  - docker stop website-container
+  - docker rm website-container
+  - docker rmi website-image
+  allow_failure: true 
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+  - unset DOCKER_HOST
+  - docker build -t website-image .
+
+deploy-job:       # This job runs in the build stage, which runs first.
+  stage: deploy
+  script:
+  - unset DOCKER_HOST
+  - docker run -d -p 80:80 -p 443:443 --name website-container website-image

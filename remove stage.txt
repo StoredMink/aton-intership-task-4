@@ -1,0 +1,69 @@
+[0KRunning with gitlab-runner 17.11.1 (96856197)[0;m
+[0K  on docker5 XzdZqia4F, system ID: r_fAj7a5YGQm5j[0;m
+section_start:1746694083:prepare_executor
+[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image docker ...[0;m
+[0KStarting service docker:dind...[0;m
+[0KPulling docker image docker:dind ...[0;m
+[0KUsing docker image sha256:92413a9ac65ae916d166fc604c4f4ce801a8431af3c5a84cfe165accdb918f3e for docker:dind with digest docker@sha256:3a861ec98623bd6014610291123751dc19e0c6d474ac3b38767771791ac0eb5e ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+
+[0;33m*** WARNING:[0;m Service runner-xzdzqia4f-project-69602144-concurrent-0-67edb74a14839e14-docker-0 probably didn't start properly.
+
+Health check error:
+start service container: Error response from daemon: Cannot link to a non running container: /runner-xzdzqia4f-project-69602144-concurrent-0-67edb74a14839e14-docker-0 AS /runner-xzdzqia4f-project-69602144-concurrent-0-67edb74a14839e14-docker-0-wait-for-service/service (services.go:215:0s)
+
+Service container logs:
+2025-05-08T08:48:06.378544913Z cat: can't open '/proc/net/arp_tables_names': No such file or directory
+2025-05-08T08:48:06.392111427Z nf_tables             151552  3 nft_chain_nat,nft_compat,nft_counter
+2025-05-08T08:48:06.392170791Z nfnetlink              16384  7 nfnetlink_log,ip_set,nfnetlink_acct,nft_compat,nf_tables,nf_conntrack_netlink
+2025-05-08T08:48:06.392207905Z ip: can't find device 'nf_tables'
+2025-05-08T08:48:06.392214375Z modprobe: can't change directory to '/lib/modules': No such file or directory
+2025-05-08T08:48:06.393002564Z ip: can't find device 'ip_tables'
+2025-05-08T08:48:06.396266126Z ip_tables              32768 11 iptable_mangle,iptable_nat,iptable_filter
+2025-05-08T08:48:06.419626365Z x_tables               40960 25 xt_recent,xt_NFLOG,xt_physdev,xt_multiport,xt_mark,xt_nfacct,xt_comment,ip6table_mangle,iptable_mangle,nft_compat,xt_nat,xt_MASQUERADE,ip6t_REJECT,xt_hl,ip6t_rt,ipt_REJECT,xt_LOG,xt_limit,xt_addrtype,xt_tcpudp,xt_conntrack,ip6table_filter,ip6_tables,iptable_filter,ip_tables
+2025-05-08T08:48:06.419654510Z ip6_tables             32768 55 ip6table_mangle,ip6table_nat,ip6table_filter
+2025-05-08T08:48:06.419693117Z modprobe: can't change directory to '/lib/modules': No such file or directory
+2025-05-08T08:48:06.419700652Z ip: can't find device 'ip6_tables'
+2025-05-08T08:48:06.420580504Z x_tables               40960 25 xt_recent,xt_NFLOG,xt_physdev,xt_multiport,xt_mark,xt_nfacct,xt_comment,ip6table_mangle,iptable_mangle,nft_compat,xt_nat,xt_MASQUERADE,ip6t_REJECT,xt_hl,ip6t_rt,ipt_REJECT,xt_LOG,xt_limit,xt_addrtype,xt_tcpudp,xt_conntrack,ip6table_filter,ip6_tables,iptable_filter,ip_tables
+2025-05-08T08:48:06.420644239Z modprobe: can't change directory to '/lib/modules': No such file or directory
+2025-05-08T08:48:06.428512552Z iptables v1.8.11 (nf_tables)
+2025-05-08T08:48:06.433787503Z mount: permission denied (are you root?)
+2025-05-08T08:48:06.434377777Z Could not mount /sys/kernel/security.
+2025-05-08T08:48:06.434579047Z AppArmor detection and --privileged mode might break.
+2025-05-08T08:48:06.456663166Z mount: permission denied (are you root?)
+
+[0;33m*********[0;m
+
+[0KPulling docker image docker ...[0;m
+[0KUsing docker image sha256:92413a9ac65ae916d166fc604c4f4ce801a8431af3c5a84cfe165accdb918f3e for docker with digest docker@sha256:3a861ec98623bd6014610291123751dc19e0c6d474ac3b38767771791ac0eb5e ...[0;m
+section_end:1746694087:prepare_executor
+[0Ksection_start:1746694087:prepare_script
+[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-xzdzqia4f-project-69602144-concurrent-0 via soundcloud...
+section_end:1746694088:prepare_script
+[0Ksection_start:1746694088:get_sources
+[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/StoredMink/ci-cd-demo/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out c30393c7 as detached HEAD (ref is main)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1746694090:get_sources
+[0Ksection_start:1746694090:step_script
+[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:92413a9ac65ae916d166fc604c4f4ce801a8431af3c5a84cfe165accdb918f3e for docker with digest docker@sha256:3a861ec98623bd6014610291123751dc19e0c6d474ac3b38767771791ac0eb5e ...[0;m
+[32;1m$ unset DOCKER_HOST[0;m
+[32;1m$ docker stop website-container[0;m
+website-container
+[32;1m$ docker rm website-container[0;m
+website-container
+[32;1m$ docker rmi website-image[0;m
+Untagged: website-image:latest
+Deleted: sha256:9cd1e958b2f75287fbb069733ac0bd9d378bb83a740fc92d54f6f96c77843498
+section_end:1746694091:step_script
+[0Ksection_start:1746694091:cleanup_file_variables
+[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1746694092:cleanup_file_variables
+[0K[32;1mJob succeeded[0;m
